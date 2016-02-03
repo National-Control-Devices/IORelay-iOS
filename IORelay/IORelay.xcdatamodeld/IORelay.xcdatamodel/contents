@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14B25" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Device" representedClassName="Device" syncable="YES">
+        <attribute name="accessPin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="accessSwitch" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="accessUnlocked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="configPin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="configSwitch" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="configurationUnlocked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="displayInputs" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="displayMacros" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="displayRelays" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="ipAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="macAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="networkSSID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numberOfRelays" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="port" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="inputs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Input" inverseName="device" inverseEntity="Input" syncable="YES"/>
+        <relationship name="macros" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Macro" inverseName="device" inverseEntity="Macro" syncable="YES"/>
+        <relationship name="relays" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Relay" inverseName="device" inverseEntity="Relay" syncable="YES"/>
+    </entity>
+    <entity name="DiscoveredDevice" representedClassName="DiscoveredDevice" syncable="YES">
+        <attribute name="ipAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="macAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="networkSSID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="port" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="signalStrength" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Input" representedClassName="Input" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" inverseName="inputs" inverseEntity="Device" syncable="YES"/>
+    </entity>
+    <entity name="InputTypeKeywords" representedClassName="InputTypeKeywords" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Macro" representedClassName="Macro" syncable="YES">
+        <attribute name="macroDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="commands" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MacroCommand" inverseName="macro" inverseEntity="MacroCommand" syncable="YES"/>
+        <relationship name="device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" inverseName="macros" inverseEntity="Device" syncable="YES"/>
+    </entity>
+    <entity name="MacroCommand" representedClassName="MacroCommand" syncable="YES">
+        <attribute name="commands" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="delay" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="event" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="macro" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Macro" inverseName="commands" inverseEntity="Macro" syncable="YES"/>
+    </entity>
+    <entity name="Relay" representedClassName="Relay" syncable="YES">
+        <attribute name="momentary" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="device" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Device" inverseName="relays" inverseEntity="Device" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Device" positionX="-63" positionY="-18" width="128" height="330"/>
+        <element name="DiscoveredDevice" positionX="-63" positionY="288" width="128" height="150"/>
+        <element name="Input" positionX="502" positionY="-27" width="128" height="120"/>
+        <element name="InputTypeKeywords" positionX="144" positionY="126" width="128" height="75"/>
+        <element name="Macro" positionX="144" positionY="126" width="128" height="118"/>
+        <element name="MacroCommand" positionX="162" positionY="144" width="128" height="120"/>
+        <element name="Relay" positionX="144" positionY="126" width="128" height="103"/>
+    </elements>
+</model>

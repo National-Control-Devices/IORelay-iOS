@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[UDPCommunications processWEBIPacket:]:UDPCommunications.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TCPCommunications socket:didReadData:withTag:]:TCPCommunications.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[RelayDelegate buildTableSectionsFromArray:]:RelayDelegate.m">
+      </ContextState>
+      <ContextState
+         contextName = "__39-[RelayDelegate requestAllRelaysStatus]_block_invoke:RelayDelegate.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[RelayDelegate toggleRelay:]:RelayDelegate.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TCPCommunications processStatusAllRelays:]:TCPCommunications.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

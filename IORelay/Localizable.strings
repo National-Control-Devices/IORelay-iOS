@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  IORelay
+
+  Created by John Radcliffe on 10/22/14.
+  Copyright (c) 2014 com.radskysoftware. All rights reserved.
+ 
+ Format = "KEY" = "CONTENT";
+*/
+"ConnectionStatusCompleted" = "Connection Completed";
